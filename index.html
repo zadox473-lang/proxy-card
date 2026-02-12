@@ -1,46 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxy Dominates Card</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxy Dominates</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  background: radial-gradient(circle at center, #140028, #000);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* Floating particles */
+body::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(128,0,255,0.15) 1px, transparent 1px);
+  background-size:60px 60px;
+  animation:moveBg 25s linear infinite;
+}
+
+@keyframes moveBg{
+  from{transform:translate(0,0);}
+  to{transform:translate(-300px,-300px);}
+}
+
+.container{
+  display:flex;
+  align-items:center;
+  gap:60px;
+  position:relative;
+  z-index:2;
+}
+
+/* Character Image */
+.warrior{
+  width:420px;
+  animation:float 4s ease-in-out infinite;
+  filter:drop-shadow(0 0 40px #8a2be2);
+}
+
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-20px);}
+  100%{transform:translateY(0px);}
+}
+
+/* Card */
+.card{
+  position:relative;
+  width:380px;
+  padding:40px;
+  border-radius:25px;
+  background:rgba(20,0,40,0.75);
+  backdrop-filter:blur(15px);
+  color:white;
+  box-shadow:0 0 30px rgba(128,0,255,0.5);
+  transition:0.4s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 60px rgba(128,0,255,0.9);
+}
+
+/* Animated border glow */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff00ff,#8000ff,#00ffff,#ff00ff);
+  z-index:-1;
+  animation:rotate 6s linear infinite;
+  filter:blur(15px);
+}
+
+@keyframes rotate{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+.live{
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:red;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,0,0,0.7);}
+  70%{box-shadow:0 0 0 12px rgba(255,0,0,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,0,0,0);}
+}
+
+.title{
+  font-size:32px;
+  font-weight:800;
+  background:linear-gradient(90deg,#ff6600,#ff0000);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+  margin:15px 0 25px;
+  font-size:16px;
+  opacity:0.85;
+}
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  padding:10px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  color:white;
+  background:linear-gradient(90deg,#8000ff,#ff00ff);
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px #ff00ff;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .container{
+    flex-direction:column;
+  }
+  .warrior{
+    width:280px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="card-container">
-        <div class="character-wrapper">
-            <img src="character.png" alt="Character" class="main-char">
-            <div class="aura-glow"></div>
-        </div>
+<div class="container">
 
-        <div class="main-card">
-            <h1 class="proxy-fire">PROXY <br><span>DOMINATES</span></h1>
-            <p class="resurrection">THE RESURRECTION</p>
-            <p class="quote">"Power isn't given. It's seized."</p>
-            <p class="owner-tag">Owner: @Proxyfxz</p>
+  <div class="card">
+    <div class="live">LIVE</div>
+    <div class="title">PROXY DOMINATES</div>
+    <div class="subtitle">Power isn’t given. It’s seized.</div>
 
-            <hr class="divider">
-
-            <div class="section-title">MAIN CHANNELS</div>
-            <div class="btn-group">
-                <a href="https://t.me/proxydominates" class="glow-btn">@proxydominates</a>
-                <a href="https://t.me/midnight_xaura" class="glow-btn">@midnight_xaura</a>
-            </div>
-
-            <div class="section-title">MY BOTS</div>
-            <div class="bot-grid">
-                <a href="https://t.me/Comfuker_bot" class="glow-btn">@Comfuker_bot</a>
-                <a href="https://t.me/existenceinfo_bot" class="glow-btn">@existenceinfo_bot</a>
-                <a href="https://t.me/hyperbanning_bot" class="glow-btn">@hyperbanning_bot</a>
-                <a href="https://t.me/sparkpr3m1um_bot" class="glow-btn">@sparkpr3m1um_bot</a>
-            </div>
-
-            <div class="footer-stats">
-                <span>Forbidden Leaks</span> • <span>High-Speed Links</span>
-            </div>
-        </div>
+    <div class="buttons">
+      <a href="#" class="btn">@proxymethod</a>
+      <a href="#" class="btn">@midnight_xaura</a>
+      <a href="#" class="btn">@comfuker_bot</a>
+      <a href="#" class="btn">@xistenceinfo_bot</a>
     </div>
+  </div>
+
+  <!-- Apni image yahan daalo -->
+  <img src="character.jpg" class="warrior" alt="Character">
+
+</div>
 
 </body>
-</html>
+    </html>
