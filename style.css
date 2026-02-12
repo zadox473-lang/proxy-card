@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  padding: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  max-width: 600px;
+}
+
+.fire-text {
+  font-size: 64px;
+  color: #ff2a2a;
+  text-shadow:
+    0 0 10px red,
+    0 0 30px orange,
+    0 0 60px red;
+  animation: fire 2s infinite alternate;
+}
+
+@keyframes fire {
+  from { text-shadow: 0 0 20px red; }
+  to { text-shadow: 0 0 50px orange; }
+}
+
+.sub {
+  margin-top: 10px;
+  letter-spacing: 3px;
+  opacity: 0.8;
+}
+
+.dialogue {
+  margin: 20px 0;
+  font-style: italic;
+  color: #ddd;
+}
+
+.owner {
+  margin-bottom: 25px;
+  opacity: 0.7;
+}
+
+.box {
+  margin-bottom: 25px;
+}
+
+.box h3 {
+  margin-bottom: 10px;
+  color: #ff4444;
+}
+
+button {
+  display: block;
+  margin: 10px 0;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid #a855f7;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #a855f7;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px #ff00ff;
+}
+
+.features {
+  margin-top: 20px;
+  list-style: none;
+}
+
+.features li {
+  margin: 6px 0;
+  opacity: 0.8;
+}
+
+.right {
+  position: relative;
+}
+
+.character {
+  width: 380px;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px purple);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.bg-smoke {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(128,0,255,0.15), transparent 70%);
+  animation: smoke 8s infinite alternate;
+  z-index: -1;
+}
+
+@keyframes smoke {
+  from { opacity: 0.4; }
+  to { opacity: 0.8; }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .character {
+    margin-top: 40px;
+    width: 280px;
+  }
+}
